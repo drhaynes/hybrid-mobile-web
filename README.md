@@ -10,15 +10,26 @@ For more details of the capabilities and mechanisms see [technical information](
 
 The project consists of two parts:
 
-1. A web frontend app
-2. A native iOS app
+1. A web app ([./web](./web))
+2. A native iOS app ([./mobile-ios](./mobile-ios))
 
 ## Running the Example Locally
 
-1. Build and serve the web + frontend
-2. Build and run the app in Xcode
+### 1. Build and serve the web + frontend
+
+```
+$ cd web
+$ npm run dev 
+```
+
+Web app will be avilable at: [localhost:3000](http://localhost:3000)
+
+### 2. Build and run the app in Xcode
+
 
 ## Technical Information
+
+* Next.js & React for web app.
 
 ***[TODO]***
 
