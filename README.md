@@ -10,16 +10,21 @@ For more details of the capabilities and mechanisms see [technical information](
 
 The project consists of two parts:
 
-1. A web app ([./web](./web))
+1. A Next.js web app ([./web](./web))
 2. A native iOS app ([./mobile-ios](./mobile-ios))
 
 ## Running the Example Locally
+
+### Pre-requisites
+
+* Node + pnpm
+* Xcode 16
 
 ### 1. Build and serve the web + frontend
 
 ```
 $ cd web
-$ npm run dev 
+$ pnpm run dev 
 ```
 
 Web app will be avilable at: [localhost:3000](http://localhost:3000)
@@ -29,15 +34,32 @@ Web app will be avilable at: [localhost:3000](http://localhost:3000)
 
 ## Technical Information
 
-* Next.js & React for web app.
+### Native Mobile App Context Detection
 
-***[TODO]***
+The web app uses the presence of pre-defined user agent string `nativeMobileAppUserAgent` to detect if it is running in a native mobile web view context or not.
 
-* How messages are passed back and forth (useful for passing JWTs or other information back and forth between the native and web environments).
+The custom react hook [`useAppInNativeMobileContext`](./web/src/hooks/useAppInNativeMobileContext.ts) can then be used from any component to render or behave conditionally depending on whether the web app is running in a web or native mobile web view.
 
-* How the react header compoent is hidden (useful for preventing unwanted navigation to other parts of the main web app).
+### Next.js Link router bypass
 
-* Navigation link overriding in the web view delegate (for displaying native views of pages that also exist on the web).
+When the Next.js router is in use, iOS web view navigation delegate methods are never invoked in native code.
+
+To bypass this, the Next.js `Link` component is wrapped, see: [`WrappedLink`](./web/src/components/WrappedLink/WrappedLink.tsx).
+
+The wrapped link uses standard links when in a native context, and the usual Next.js `Link` components when in a normal web context.
+
+This component should be used for all links in the web app.
+
+With link navigation interception working on the native side, navigation can then be routed to a native view if one exists for a given link.
+
+### Hiding of components (such as header & footer)
+
+* TODO: How react compoents can be hidden (useful for preventing unwanted navigation to other parts of the main web app).
+
+### Message passing
+
+* TODO: How messages are passed back and forth (useful for passing JWTs or other information back and forth between the native and web environments).
+
 
 ## License
 
