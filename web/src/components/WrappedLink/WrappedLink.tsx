@@ -30,7 +30,7 @@ export const WrappedLink = (props: LinkProps) => {
     return !href ? (
         <span {...spanProps}>{children}</span>
     ) : appIsInNativeMobileContext ? (
-        <a href={href}>
+        <a href={href} {...anchorProps}>
             {children}
         </a>
     ) : (

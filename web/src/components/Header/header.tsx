@@ -1,8 +1,15 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAppInNativeMobileContext } from '@/hooks/useAppInNativeMobileContext';
 
 const Header = () => {
-    return (
+    const appIsInNativeMobileContext = useAppInNativeMobileContext()
+
+    return appIsInNativeMobileContext ? (
+        <header />
+    ) : (
         <header
             className="sticky top-0 z-10 w-full bg-white shadow-md py-4">
             <div className="container mx-auto px-4 flex items-center">
@@ -29,7 +36,7 @@ const Header = () => {
                 </nav>
             </div>
         </header>
-    );
+    )
 }
 
 export default Header;
