@@ -40,6 +40,8 @@ The web app uses the presence of pre-defined user agent string `nativeMobileAppU
 
 The custom react hook [`useAppInNativeMobileContext`](./web/src/hooks/useAppInNativeMobileContext.ts) can then be used from any component to render or behave conditionally depending on whether the web app is running in a web or native mobile web view.
 
+Note: Any React component using this hook will need to declare `'use client'` at the top of the file to indicate that this logic can only run client-side.
+
 ### Next.js Link router bypass
 
 When the Next.js router is in use, iOS web view navigation delegate methods are never invoked in native code.

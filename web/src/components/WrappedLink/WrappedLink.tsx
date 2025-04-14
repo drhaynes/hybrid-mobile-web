@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { LinkProps } from './types'
-import { useAppInNativeMobileContext } from "@/hooks/useAppInNativeMobileContext";
+import { useAppInNativeMobileContext } from '@/hooks/useAppInNativeMobileContext';
 
 export const WrappedLink = (props: LinkProps) => {
     const { className, newWindow, noFollow, onClick, tabIndex, noStyle, referrerPolicy } = props

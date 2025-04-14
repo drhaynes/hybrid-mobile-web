@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
-import Image from "next/image";
-import WrappedLink from "@/components/WrappedLink/WrappedLink";
+import Image from 'next/image';
+import WrappedLink from '@/components/WrappedLink/WrappedLink';
 
 export default function Page() {
   return (
