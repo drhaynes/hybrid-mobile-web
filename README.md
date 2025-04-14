@@ -1,10 +1,10 @@
 # Hybrid mobile/web App Architecture Example
 
-This project is an example of how to build a hybrid mobile app that uses a combination of platform-native code and embedded web views that can display and interact with views from a nextjs + react web app.
+This project is an example of how to build a hybrid mobile app that uses a combination of platform-native code and embedded web views that can display and interact with pages from a Next.js + React web app.
 
 This hybrid architecture is useful for rapid development of mobile apps that can use as much (or as little) of an existing web frontend as required.
 
-For more details of the capabilities and mechanisms see [technical information]().
+For more details of the capabilities and mechanisms see [technical information](#technical-information).
 
 ## Project Structure
 
