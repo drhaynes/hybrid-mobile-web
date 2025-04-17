@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let scriptMessageHandler = WebScriptMessageHandler()
     let linkHandler: (URL) -> Void = { url in
         print(url.path)
     }
@@ -23,7 +24,10 @@ struct ContentView: View {
             .padding()
             .navigationDestination(for: String.self) { value in
                 if value == "WebView" {
-                    let webView = WebkitWrapperView(linkNavigationHandler: linkHandler)
+                    let webView = WebKitWrapperView(
+                        linkNavigationHandler: linkHandler,
+                        scriptMessageHandler: scriptMessageHandler
+                    )
                     webView
                 }
             }
