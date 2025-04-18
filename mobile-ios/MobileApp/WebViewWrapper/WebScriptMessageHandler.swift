@@ -47,7 +47,8 @@ extension WebScriptMessageHandler: WKScriptMessageHandlerWithReply {
         }
     }
     
-    private func handleInfoRequest(_ message: WebScriptMessage, replyHandler: @escaping (Any?, String?) -> Void) {
+    private func handleInfoRequest(_ message: WebScriptMessage,
+                                   replyHandler: @escaping (Any?, String?) -> Void) {
         let value = message.params?["text"]
         switch value {
             case let .string(text):
